@@ -1,0 +1,16 @@
+.vscode/
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+*.so
+*.a
+*.log
+*.gch
+*~
+*.swp
+*.tmp
+build/
+cmake-build-*/
+.DS_Store
