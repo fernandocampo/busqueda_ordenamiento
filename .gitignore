@@ -14,3 +14,7 @@
 build/
 cmake-build-*/
 .DS_Store
+*[!.*]
+ej1
+ej2
+ej3
