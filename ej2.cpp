@@ -56,6 +56,7 @@ int main () {
     cout << "Notas ordenadas de menor a mayor" << endl;
     imprimir(notas, TAM);
 
+
     
     return 0;
 }
