@@ -25,6 +25,15 @@ void cargar(Producto productos[], int cant) {
     }
 }
 
+void stockBajo(Producto productos[], int cant) {
+    for (int i = 0; i < cant; i++) {
+        if (productos[i].cantidad < 10) {
+            cout << "Producto: " << productos[i].nombre;
+            cout << ", Stock: " << productos[i].cantidad << endl;
+        }
+    }
+}
+
 void imprimir(Producto productos[], int cant) {
     for (int i = 0; i < cant; i++) {
         cout << "Producto: " << productos[i].nombre << ", Stock: " << productos[i].cantidad << endl;
@@ -61,12 +70,31 @@ int buscarSecuencial(Producto productos[], int cant, int valorBuscado) {
 
 
 int main () {
-    const int TAM = 12;
-    Productos productos[TAM];
-
+    const int TAM = 5;
+    Producto productos[TAM];
+    int stockBuscado;
 
     cargar(productos, TAM);
     imprimir(productos, TAM);
+
+    cout << "---productos ordenados por stock de menor a mayor---" << endl;
+    burbujeo(productos, TAM);
+    imprimir(productos, TAM);
+
+    cout << "Productos con stock especifico" << endl;
+    cin >> stockBuscado;
+
+    int pos = buscarSecuencial(productos, TAM, stockBuscado);
+    if (pos != -1) {
+        cout << "Producto encontrado: " << productos[pos].nombre 
+             << " con stock " << productos[pos].cantidad << endl;
+    } else {
+        cout << "No hay productos con esa cantidad de stock." << endl;
+    }
+
+    cout << "Productos con stock bajo" << endl;
+    stockBajo(productos, TAM);
+
     
     return 0;
 }
