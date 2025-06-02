@@ -67,10 +67,8 @@ int buscarSecuencial(Producto productos[], int cant, int valorBuscado) {
     return -1;
 }
 
-
-
 int main () {
-    const int TAM = 5;
+    const int TAM = 12;
     Producto productos[TAM];
     int stockBuscado;
 
@@ -81,7 +79,7 @@ int main () {
     burbujeo(productos, TAM);
     imprimir(productos, TAM);
 
-    cout << "Productos con stock especifico" << endl;
+    cout << "Ingresa un stock especifico a buscar" << endl;
     cin >> stockBuscado;
 
     int pos = buscarSecuencial(productos, TAM, stockBuscado);
@@ -92,7 +90,7 @@ int main () {
         cout << "No hay productos con esa cantidad de stock." << endl;
     }
 
-    cout << "Productos con stock bajo" << endl;
+    cout << "Listado de productos con stock bajo (menos de 10)" << endl;
     stockBajo(productos, TAM);
 
     
