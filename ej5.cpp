@@ -13,42 +13,40 @@ using namespace std;
 struct Ventas {
     string producto;
     float precio;
-    float cantidad;
+    int cantidad;
 };
 
-void cargar (int semana[], int cant) {
-    for (int i = 0; i < cant; i++)
-    {
-        cout << "cargar ventas de la semana" << endl;
-        cin >> semana[i];
-        cout << "ingresar producto" << endl;
-        cin >> producto;
-
-        cout << "ingresar precio" << endl;
-        cin >> precio;
-
-        cout << "cantidad" << endl;
-        cin >> cantidad;
-    }
-    
-}
-
-void imprimir(float semana[], int cant) {
+void cargar(Ventas semana[], int cant) {
     for (int i = 0; i < cant; i++) {
-        cout << semana[i] << endl;
+        cout << "Cargar venta de la semana " << i + 1 << ":" << endl;
+
+        cout << "Ingresar producto: ";
+        cin >> semana[i].producto;
+
+        cout << "Ingresar precio: ";
+        cin >> semana[i].precio;
+
+        cout << "Ingresar cantidad: ";
+        cin >> semana[i].cantidad;
     }
 }
+
+void imprimir(Ventas semana[], int cant) {
+    float totalSemana = 0;
+    for (int i = 0; i < cant; i++) {
+        float totalVenta = semana[i].precio * semana[i].cantidad;
+        totalSemana += totalVenta;
+    }
+}
+
 
 int main () {
     const int TAM = 7;
-    int semana[TAM];
-    float precio;
-    int cantidad;
-    string producto;
+    Ventas semana[TAM];
 
-    Ventas venta;
 
-    cargar(semana, TAM); 
+    cargar(semana, TAM);
+    imprimir(semana, TAM);
     
     return 0;
 }
